@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends 'nav.html' %}
+    {% block mymessage %}
+    <div class="container">
+        <h2>CheckOut Form</h2>
+        <form action="" method="post">
+            <table class="d-flex justify-content-center align-items-center my-2 m">
+                {%csrf_token%}
+                <tr>
+                    <th><label for="id_email" class="form-label">Email:</label></th>
+                    <td>
+
+                        <input type="email" name="email" maxlength="254" required id="id_email" class="form-control"
+                        value="{{user.email}}">
+
+
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <th><label for="id_quantity" class="form-label">Quantity:</label></th>
+                    <td>
+                        
+                        <input type="number" name="quantity" value="1" required id="id_quantity" class="form-control">
+                        
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="id_size" class="form-label">Size:</label></th>
+                    <td>
+
+                        
+                        S<input type="radio" name="size" value="S" maxlength="100" required id="id_size">
+                        M<input type="radio" name="size" value="M" maxlength="100" required id="id_size">
+                        L<input type="radio" name="size" value="L" maxlength="100" required id="id_size">
+                        XL<input type="radio" name="size" value="XL" maxlength="100" required id="id_size">
+
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><label for="id_is_cash_on_delevery" class="form-label">cash on delevery:</label></th>
+                    <td>
+                      <input type="radio" name="is_cash_on_delevery" id="id_is_cash_on_delevery" value="1">
+                    </td>
+                    </tr>
+                    <th><label for="id_is_cash_on_delevery" class="form-label">Other Mode:</label></th>
+                    <td>
+                        <input type="radio" name="is_cash_on_delevery" id="id_is_cash_on_delevery" value="0">
+                    </td>
+                </tr>
+                <tr>
+                   
+                    <td>
+                      <button type="submit" value="submit" class="btn btn-outline-success btn-lg my-4">CheckOut</button>
+                    </td>
+                  </tr>
+
+            </table>
+        </form>
+    </div>
+
+    {%endblock%}
+</body>
+
+</html>
+
+
+<label for="size" class="size" style="font-size: 19px;
+font-weight: 400;">Size's Here:</label>
+<br>
+S<input type="radio" name="size" id="S" value="S">
+M<input type="radio" name="size" id="M" value="M">
+L<input type="radio" name="size" id="L" value="L">
+XL<input type="radio" name="size" id="XL" value="XL"></p>
+<div style="margin-left: 60px;
+margin-bottom: 5px;">
+
+
+
+    <span style="font-size: 22px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-weight: 500;">Quantity -</span> <input type="text" id="inpjs" name="quantity" style="
+    width: 80px;
+    height:30px;
+    border-radius: 10px;
+    text-align: center;
+    ">
+
+</div>

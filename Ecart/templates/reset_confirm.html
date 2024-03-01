@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/am.css'%}">
+    <link rel="stylesheet" href="{%static 'css/p.css'%}">
+</head>
+<body style="background-color:rgba(69, 73, 57, 0.925);">
+    <div class="container">
+        <form action="" method="post">
+          {%csrf_token%}
+          <h2 >Add New Password Here</h2>
+          <table class="d-flex justify-content-center align-items-center my-2 m">
+            <tr>
+              {{form.as_table}}
+            </tr>
+            <tr>
+              <td>
+                <button type="submit" value="submit" class="btn  btn-outline-success btn-lg my-4">Save</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    
+            

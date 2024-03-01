@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends 'nav.html' %}
+    {% block mymessage %}
+    <br>
+    {% if messages %}
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+    <ul class="messages">
+        {% for message in messages %}
+
+
+
+        {%if message.tags == 'error' %}
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+                {{message}}
+            </div>
+        </div>
+        {%else%}
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                {{message}}
+            </div>
+        </div>
+        {%endif%}
+
+
+        {% endfor %}
+        {%endif%}
+
+
+        <section class="h-100 h-custom" style="background-color: #eee;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body p-4">
+
+                                <div class="row">
+
+                                    <div class="col-lg-7">
+                                        <h5 class="mb-3"><a href="/store" class="text-body"><i
+                                                    class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a>
+                                        </h5>
+                                        <hr>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div>
+                                                <p class="mb-1">Shopping cart</p>
+                                                <p class="mb-0">
+                                                <h3>Your Have <span class="badge bg-secondary"> {{ list|length }}
+                                                    </span>
+                                                    Product In Your Cart</h3>
+                                                </p>
+                                            </div>
+                                            <div>
+
+
+                                            </div>
+                                        </div>
+
+                                        {%for i in list%}
+
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <div>
+                                                            <img src="{{i.product.pro_img.url}}"
+                                                                class="img-fluid rounded-3" alt="Shopping item"
+                                                                style="width: 65px;">
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h5>{{i.product.pro_name}}</h5>
+                                                            <p class="small mb-0">{{i.product.desc}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row align-items-center">
+
+                                                        <div style="width: 50px;">
+                                                            <h5 class="fw-normal mb-0">{{i.size}}</h5>
+                                                        </div>
+
+                                                        <div style="width: 80px;">
+                                                            <a href="dele/{{i.id}}"
+                                                                class="btn btn-outline-danger ">Delete</a>
+                                                        </div>
+                                                        <a href="#!" style="color: #cecece;"><i
+                                                                class="fas fa-trash-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-2">Price</p>
+                                            <p class="mb-2">Rs.{{i.product.price}}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-2">Quantity</p>
+                                            <p class="mb-2">{{i.quantity}}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <p class="mb-2">Total(Incl. taxes)</p>
+                                            <p class="mb-2">Rs.{% widthratio i.product.price 1 i.quantity %}</p>
+                                        </div>
+
+                                        <!-- Button trigger modal -->
+                                        <a href=" {% url 'product:buy_order' i.product.id %}"
+                                            class="btn btn-outline-success btn-lg my-4">
+                                            Checkout
+                                        </a>
+
+                                        <!-- Modal -->
+
+
+                                        {%endfor%}
+
+
+                                    </div>
+                                    <div class="col-lg-5">
+
+                                        <div class="card bg-primary text-white rounded-3">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <h5 class="mb-0">Card details</h5>
+
+                                                </div>
+
+                                                <p class="small mb-2">Card type</p>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                                                <a href="#!" type="submit" class="text-white"><i
+                                                        class="fab fa-cc-paypal fa-2x"></i></a>
+
+                                                <form class="mt-4">
+                                                    <div class="form-outline form-white mb-4">
+                                                        <input type="text" id="typeName"
+                                                            class="form-control form-control-lg" siez="17"
+                                                            placeholder="Cardholder's Name" />
+                                                        <label class="form-label" for="typeName"></label>
+                                                    </div>
+
+                                                    <div class="form-outline form-white mb-4">
+                                                        <input type="text" id="typeText"
+                                                            class="form-control form-control-lg" siez="17"
+                                                            placeholder="1234 **** **** 3457" minlength="19"
+                                                            maxlength="19" />
+                                                        <label class="form-label" for="typeText"></label>
+                                                    </div>
+
+                                                    <div class="row mb-4">
+                                                        <div class="col-md-6">
+                                                            <div class="form-outline form-white">
+                                                                <input type="text" id="typeExp"
+                                                                    class="form-control form-control-lg"
+                                                                    placeholder="MM/YYYY" size="7" id="exp"
+                                                                    minlength="7" maxlength="7" value="MM/YYYY" />
+                                                                <label class="form-label" for="typeExp"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-outline form-white">
+                                                                <input type="password" id="typeText"
+                                                                    class="form-control form-control-lg"
+                                                                    placeholder="&#9679;&#9679;&#9679;" size="1"
+                                                                    minlength="3" maxlength="3" />
+                                                                <label class="form-label" for="typeText"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
+
+
+                                                <button type="button" class="btn btn-info btn-block btn-lg">
+                                                    <div class="d-flex justify-content-between">
+
+                                                        <span>Checkout <i
+                                                                class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                    </div>
+                                                </button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bd-footer py-5 mt-5 bg-dark sticky-md-top">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-3 mb-3">
+                        <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/"
+                            aria-label="Bootstrap">
+
+                            <span class="fs-5 " style='color: white;font-size:38px;font-family:cursive;'>Ami-Ecom
+                                &nbsp; </span>
+
+
+                        </a>
+
+                    </div>
+                    <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                        <h5 style='color: white;'>About</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="/" style='text-decoration: none;'>About Ami-Ecom</a></li>
+
+
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Careers</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5 style='color: white;'>Product</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Features</a></li>
+
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Stcok</a></li>
+
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Filter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5 style='color: white;'>Resource</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Information Hub</a></li>
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>FAQ: Ami-Ecom</a></li>
+
+
+                            <li class="mb-2"><a href="#" style='text-decoration: none;'>Service + Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3">
+                        <h5 style='color: white;'>Contact</h5>
+                        <ul class="list-unstyled">
+
+                            <li class="mb-2"><a href="mailto:amitdwivedi06503@gmail.com?"
+                                    style='text-decoration: none;'><button type="button" class="btn btn-outline-danger"
+                                        fdprocessedid="591uct">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z">
+                                            </path>
+                                        </svg>
+                                        Email
+                                    </button></a>
+                            </li>
+                            <li class="mb-2"><a href="https://api.whatsapp.com/send?phone=918104983223"
+                                    style='text-decoration: none;'><button type="button" class="btn btn-outline-success"
+                                        fdprocessedid="pyeca">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                            <path
+                                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+                                            </path>
+                                        </svg>
+                                        whatsapp
+                                    </button></a></li>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        </div>
+        {%endblock%}
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/am.css'%}">
+    <link rel="stylesheet" href="{%static 'css/p.css'%}">
+</head>
+<body style="background-color:rgba(69, 73, 57, 0.925);">
+    <div class="container">
+        <form action="" method="post">
+         
+          {%csrf_token%}
+          <h2 >Password Reset Here</h2>
+         
+          <table class="d-flex justify-content-center align-items-center my-2 m">
+            <p style="text-align: center;color: bisque;">Give A Vailid Emait Those Email Use the SineUp Time </p>
+            <tbody>
+              <tr></tr>
+              <div class="mb-3">
+                <tr>
+                  <th><label for="id_username" class="form-label" style="font-size: 27px;padding-right: 15px;">Enter Your Email:</label></th>
+                  <td>
+                    <input  type="text" id="formGroupExampleInput" class="form-control inp" name="email" maxlength="150"
+                      autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username"
+                      fdprocessedid="qgyig9" placeholder="Enter Your Email" >
+                    <br>
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" value="submit" class="btn btn-outline-success btn-lg my-4">Forgot</button>
+                      </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="/" class="btn btn-outline-info btn-lg  " tabindex="-1" role="button"
+                      aria-disabled="true">Cancle</a>
+                  </td>
+              </tr>
+              </div>
+            </tbody>
+          </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body >
+  {% extends 'nav.html' %}
+  {% block mymessage %}
+  
+
+  <!-- Sineup form Start here -->
+  
+  {%if form%}
+  
+  <div class="container">
+    <form action="" method="post">
+      {%csrf_token%}
+      <h2>SineUp Here</h2>
+      <table class="d-flex justify-content-center align-items-center my-2 m">
+
+        <tbody>
+          <tr></tr>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_username" class="form-label">Email:</label></th>
+              <td>
+                <input type="email" id="formGroupExampleInput" class="form-control inp" name="email" maxlength="150"
+                  autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username"
+                  fdprocessedid="qgyig9">
+                <br>
+              </td>
+            </tr>
+          </div>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_username" class="form-label">Username:</label></th>
+              <td>
+                <input type="text" id="formGroupExampleInput" class="form-control inp" name="username" maxlength="150"
+                  autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username"
+                  fdprocessedid="qgyig9">
+                <br>
+              </td>
+            </tr>
+          </div>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_password1" class="form-label">Password:</label></th>
+              <td>
+                <input type="password" id="formGroupExampleInput" class="form-control inp" name="password1"
+                  autocomplete="new-password" required="" id="id_password1" fdprocessedid="rjlt8r">
+                <br>
+              </td>
+            </tr>
+          </div>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_password2" class="form-label">Password confirmation:</label></th>
+              <td>
+                <input type="password" id="formGroupExampleInput" class="form-control inp" name="password2"
+                  autocomplete="new-password" required="" id="id_password2" fdprocessedid="dr47v">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/" class="btn btn-outline-info btn-lg  " tabindex="-1" role="button"
+                  aria-disabled="true">Cancle</a>
+              </td>
+              <td>
+                <button type="submit" value="submit" class="btn btn-outline-success btn-lg my-4">Resister</button>
+              </td>
+            </tr>
+            <hr>
+            <tr>
+              <td>
+                if Already Resister?<a href="/login_page" class="btn btn-info btn-lg " tabindex="-1" role="button"
+                  aria-disabled="true">Login Here</a>
+              </td>
+            </tr>
+
+          </div>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  {%endif%}
+  <!-- Sineup Form End here -->
+
+  <!-- login form Start here -->
+  {%if frm%}
+  
+  <div class="container">
+    <form action="" method="post">
+      {%csrf_token%}
+      <h2>Login Here</h2>
+      <table class="d-flex justify-content-center align-items-center my-2 m">
+        <tbody>
+          <tr></tr>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_username" class="form-label">Username:</label></th>
+              <td>
+                <input type="text" id="formGroupExampleInput" class="form-control inp" name="username" maxlength="150"
+                  autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username"
+                  fdprocessedid="qgyig9">
+                <br>
+              </td>
+            </tr>
+          </div>
+          <div class="mb-3">
+            <tr>
+              <th><label for="id_password1" class="form-label">Password:</label></th>
+              <td>
+                <input type="password" id="formGroupExampleInput" class="form-control inp" name="password"
+                  autocomplete="new-password" required="" id="id_password1" fdprocessedid="rjlt8r">
+                <br>
+              </td>
+            </tr>
+          </div>
+          <tr>
+            <td>
+              <a href="/" class="btn btn-outline-info btn-lg  " tabindex="-1" role="button"
+                aria-disabled="true">Cancle</a>
+            </td>
+            <td>
+              <button type="submit" value="submit" class="btn  btn-outline-success btn-lg my-4">Login</button>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              if Not Resister?<a href="sineup" class="btn btn-info btn-lg " tabindex="-1" role="button"
+                aria-disabled="true">SineUp Here</a>
+            </td>
+            <hr>
+          </tr>
+          <tr>
+            <td style="padding-top: 10px;">
+              If Password Not Remember?<a href="password_reset/" class="btn btn-outline-warning btn-lg " tabindex="-1"
+                role="button" aria-disabled="true">Forgot password</a>
+            </td>
+          </tr>
+
+  </div>
+  </tbody>
+  </table>
+  </form>
+  </div>
+  {%endif%}
+  <!-- Login Form End Here -->
+
+
+
+  <!-- carousle -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+  </svg>
+
+
+  <!--  image Slider -->
+  <div id="carouselExampleCaptions" class="carousel slide my-1 carousel-fade " data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner ">
+      <div class="carousel-item active">
+        <img src="https://source.unsplash.com/random/1420x500/?jeans" class="d-block  w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 style="color:black ;font-weight: bolder;">AmI-Ecom Hikes</h2>
+          <p style="color:rgb(69, 63, 63) ;font-weight:500;">Awesome Momment Cloths</p>
+          <button type="button" class="btn btn-primary">love</button>
+          <button type="button" class="btn btn-secondary">choice</button>
+          <button type="button" class="btn btn-success">curage</button>
+          <button type="button" class="btn btn-danger">judgement</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/random/1420x500/?clothes" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 style="color:black ;font-weight: bolder;">AmI-Ecom Hikes</h2>
+          <p style="color:rgb(69, 63, 63) ;font-weight:500;">Cool Wear's Men's & Women's</p>
+          <button type="button" class="btn btn-primary">love</button>
+          <button type="button" class="btn btn-secondary">choice</button>
+          <button type="button" class="btn btn-success">curage</button>
+          <button type="button" class="btn btn-danger">judgement</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/random/1420x500/?shirts" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 style="color:black ;font-weight: bolder;">AmI-Ecom Hikes</h2>
+          <p style="color:rgb(69, 63, 63) ;font-weight:500;">trendy Famous Cloths</p>
+          <button type="button" class="btn btn-primary">Love</button>
+          <button type="button" class="btn btn-secondary">choice</button>
+          <button type="button" class="btn btn-success">curage</button>
+          <button type="button" class="btn btn-danger">judgement</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- card body -->
+  <div class="container">
+    <h2 style="background-color: rgb(6, 5, 5); color: rgb(135, 135, 76);text-align: center;height: 45px;">
+      Product Catagory
+    </h2>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      {%for i in cta%}
+      <div class="col" >
+        <div class="card" style="border: none;" >
+
+          <a href="/store">
+
+            <img src="{{i.cat_img.url}}" height="200" width="100" class="img-fluid img_amit" alt="..."  style="aspect-ratio: 3/4;object-fit:cover;border: none;">
+          </a>
+
+          <div class="card-body">
+            <h3 class="card-title">{{i.name}}</h3>
+            
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+
+
+    </div>
+  </div>
+    <!-- end -->
+
+  </div>
+
+  <div class="container">
+    <h2>New Offer's Here <span class="badge bg-secondary">Offer's</span></h2>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+
+
+
+
+  <footer class="bd-footer py-5 mt-5 bg-dark sticky-md-top">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-3 mb-3">
+          <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/"
+            aria-label="Bootstrap">
+
+            <span class="fs-5 " style='color: white;font-size:38px;font-family:cursive;'>Ami-Ecom
+              &nbsp; </span>
+
+
+          </a>
+
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+          <h5 style='color: white;'>About</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" style='text-decoration: none;'>About Ami-Ecom</a></li>
+
+
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Careers</a></li>
+
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5 style='color: white;'>Product</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Features</a></li>
+
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Stcok</a></li>
+
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Filter</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5 style='color: white;'>Resource</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Information Hub</a></li>
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>FAQ: Ami-Ecom</a></li>
+
+
+            <li class="mb-2"><a href="#" style='text-decoration: none;'>Service + Support</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2 mb-3">
+          <h5 style='color: white;'>Contact</h5>
+          <ul class="list-unstyled">
+
+            <li class="mb-2"><a href="mailto:amitdwivedi06503@gmail.com?" style='text-decoration: none;'><button
+                  type="button" class="btn btn-outline-danger" fdprocessedid="591uct">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path
+                      d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z">
+                    </path>
+                  </svg>
+                  Email
+                </button></a>
+            </li>
+            <li class="mb-2"><a href="https://api.whatsapp.com/send?phone=918104983223"
+                style='text-decoration: none;'><button type="button" class="btn btn-outline-success"
+                  fdprocessedid="pyeca">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path
+                      d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232">
+                    </path>
+                  </svg>
+                  whatsapp
+                </button></a></li>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+  {% endblock %}
+
+
+
+
+
+</body>
+
+</html>
